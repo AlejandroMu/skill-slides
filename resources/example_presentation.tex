@@ -1,0 +1,133 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% Load our custom beamer style package
+\usepackage{custombeamer}
+
+\begin{document}
+
+% ==============================================================================
+% CATEGORY 1: TITLE SLIDES (PORTADAS)
+% ==============================================================================
+
+% Portada Estilo 1: Minimalist
+\titleSlideMinimalist
+  {Title (Style: Minimalist)} % Title
+  {Subtitle / Presentation Description} % Subtitle
+  {Author Name} % Author
+  {Institution / Date} % Date/Institution
+
+% Portada Estilo 2: Split Banner
+\titleSlideSplit
+  {Title (Style: Split Banner)} % Title
+  {Subtitle / Presentation Description} % Subtitle
+  {Author Name} % Author
+  {Institution / Date} % Date/Institution
+
+% Portada Estilo 3: Dark Mode
+\titleSlideDarkMode
+  {Title (Style: Dark Mode)} % Title
+  {Subtitle / Presentation Description} % Subtitle
+  {Author Name} % Author
+  {Institution / Date} % Date/Institution
+
+
+% ==============================================================================
+% CATEGORY 2: TABLE OF CONTENTS / AGENDA
+% ==============================================================================
+
+% Agenda Estilo 1: Numbered Steps
+\agendaSlideNumbered
+  {Agenda Title (Style: Numbered Steps)}
+  {Step 1: Description of first milestone}
+  {Step 2: Description of second milestone}
+  {Step 3: Description of third milestone}
+  {Step 4: Description of fourth milestone}
+
+% Agenda Estilo 2: Cards Grid
+\agendaSlideCards
+  {Agenda Title (Style: Cards Grid)}
+  {Topic 1: Key topic overview}
+  {Topic 2: Key topic overview}
+  {Topic 3: Key topic overview}
+  {Topic 4: Key topic overview}
+
+% Agenda Estilo 3: Progress Tracker (Highlighting item 2)
+\agendaSlideProgress
+  {Agenda Title (Style: Progress Tracker)}
+  {2} % Highlight item index (1-4)
+  {Topic 1: Completed / Inactive}
+  {Topic 2: Active / Highlighted}
+  {Topic 3: Upcoming / Inactive}
+  {Topic 4: Upcoming / Inactive}
+
+
+% ==============================================================================
+% CATEGORY 3: SECTION DIVIDERS (SECCIONES)
+% ==============================================================================
+
+% Sección Estilo 1: Solid Color
+\sectionSlideSolid
+  {01} % Section Number/Label
+  {Section Title (Style: Solid Color)} % Section Title
+  {Description of the topics covered in this section} % Subtitle
+
+% Sección Estilo 2: Left Stripe
+\sectionSlideStripe
+  {02} % Section Number/Label
+  {Section Title (Style: Left Stripe)} % Section Title
+  {Description of the topics covered in this section} % Subtitle
+
+% Sección Estilo 3: Dark Mode
+\sectionSlideDark
+  {03} % Section Number/Label
+  {Section Title (Style: Dark Mode)} % Section Title
+  {Description of the topics covered in this section} % Subtitle
+
+
+% ==============================================================================
+% CATEGORY 4: CONTENT SLIDES (CONTENIDO)
+% ==============================================================================
+
+% Contenido Estilo 1: Bullet Points & Card
+\contentSlideBulletCard
+  {Slide Title (Style: Bullet \& Card)}
+  {
+    \begin{itemize}
+      \item \textbf{Point 1:} Description of a core fact or argument.
+      \item \textbf{Point 2:} Another supporting detail about this slide.
+      \item \textbf{Point 3:} Bullet lists look clean and have customized icons.
+    \end{itemize}
+  }
+  {Takeaway Header}
+  {This side card highlights a key statistic, quote, or critical takeaway that balances the list on the left.}
+
+% Contenido Estilo 2: Two-Column Split
+\contentSlideTwoCols
+  {Slide Title (Style: Two-Column Split)}
+  {Column 1 Header}
+  {
+    Detailed paragraph or list for the left column.
+    \begin{itemize}
+      \item Sub-point A.
+      \item Sub-point B.
+    \end{itemize}
+  }
+  {Column 2 Header}
+  {
+    Detailed paragraph or list for the right column. Useful for comparison or pros vs. cons.
+    \begin{itemize}
+      \item Sub-point C.
+      \item Sub-point D.
+    \end{itemize}
+  }
+
+% Contenido Estilo 3: Quote & Big Stat
+\contentSlideQuoteStat
+  {Slide Title (Style: Quote \& Big Stat)}
+  {99.9\%} % Huge text/stat/keyword
+  {Metric / Keyword Label} % Label below the metric
+  {“A beautiful layout combined with a strong metric creates an unforgettable slide for your audience.”} % Takeaway text
+
+\end{document}
