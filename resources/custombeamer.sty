@@ -69,6 +69,28 @@
   \end{tikzpicture}
 }
 
+% Global frametitle template to handle right-aligned titles with no overlap with the left logo
+\setbeamertemplate{frametitle}{
+  \vspace*{0.2cm}
+  \hfill
+  \begin{minipage}[t]{9.5cm}
+    \raggedleft
+    \large\bfseries\color{cbBlue}\insertframetitle
+  \end{minipage}
+  \vspace*{0.6cm}
+}
+
+% Global frametitle template to handle right-aligned titles with no overlap with the left logo
+\setbeamertemplate{frametitle}{
+  \vspace*{0.2cm}
+  \hfill
+  \begin{minipage}[t]{9.5cm}
+    \raggedleft
+    \large\bfseries\color{cbBlue}\insertframetitle
+  \end{minipage}
+  \vspace*{0.6cm}
+}
+
 % ==========================================
 % CATEGORY 1: TITLE SLIDES (PORTADAS)
 % ==========================================
@@ -101,7 +123,7 @@
             fill=cbLime,
             text width=9cm,
             minimum width=10cm,
-            minimum height=1.8cm ] at ($(current page.north west) + (1cm, -6cm)$) 
+            minimum height=1.8cm ] at ($(current page.north west) + (1cm, -6.5cm)$) 
           {
             {\bfseries \color{cbTextDark} #3}\par
             \vspace*{0.2cm}
@@ -128,7 +150,7 @@
       \begin{columns}
         \begin{column}{0.4\textwidth}
           \color{cbWhite}
-          \vspace*{1cm}
+          \vspace*{2.5cm} % Pushed down to clear the logo
           {\Huge \bfseries #1}\par
           \vspace*{0.5cm}
           {\normalsize\color{cbLime} #2}
@@ -165,7 +187,7 @@
     }
     \begin{frame}[plain]
       \centering
-      \vspace*{1.5cm}
+      \vspace*{2.5cm} % Pushed down to clear the logo
       {\Huge \bfseries \color{cbWhite} #1}\par
       \vspace*{0.4cm}
       {\large \color{cbLime} #2}\par
@@ -192,11 +214,7 @@
         \drawIcesiLogo{cbBlue}
       \end{tikzpicture}
     }
-    \begin{frame}{}
-      \vspace*{0.2cm}
-      \hspace*{6cm}
-      {\large \color{cbBlue}#1}
-      \vspace*{0.3cm}
+    \begin{frame}{#1}
       \begin{itemize}
         \item[{\tikz[baseline=-0.5ex]\node[circle,fill=cbBlue,text=cbWhite,inner sep=2pt,minimum size=20pt,font=\bfseries]{1};}] \large #2
         \vspace*{0.2cm}
@@ -220,11 +238,7 @@
         \drawIcesiLogo{cbBlue}
       \end{tikzpicture}
     }
-    \begin{frame}{}
-      \vspace*{0.2cm}
-      \hspace*{6cm}
-      {\large \color{cbBlue}#1}
-      \vspace*{0.3cm}
+    \begin{frame}{#1}
       \begin{columns}[onlytextwidth]
         \begin{column}{0.48\textwidth}
           \begin{tcolorbox}[colback=cbBlue!10,colframe=cbBlue,arc=4pt,title=\textbf{01},coltitle=cbWhite,fonttitle=\bfseries]
@@ -264,11 +278,7 @@
     \def\colorTwo{\ifnum#2=2 cbOrange\else cbGrey\fi}
     \def\colorThree{\ifnum#2=3 cbOrange\else cbGrey\fi}
     \def\colorFour{\ifnum#2=4 cbOrange\else cbGrey\fi}
-    \begin{frame}{}
-      \vspace*{0.2cm}
-      \hspace*{6cm}
-      {\large \color{cbBlue}#1}
-      \vspace*{0.3cm}
+    \begin{frame}{#1}
       \begin{itemize}
         \item[{\tikz[baseline=-0.5ex]\node[circle,fill=\colorOne,text=cbWhite,inner sep=2pt,minimum size=20pt,font=\bfseries]{1};}] 
           \ifnum#2=1 \textbf{\color{cbBlue}\large #3} \else \color{cbMuted}\large #3 \fi
@@ -303,7 +313,7 @@
     }
     \begin{frame}[plain]
       \centering
-      \vspace*{1.5cm}
+      \vspace*{2.5cm} % Pushed down to clear the logo
       {\Huge \bfseries \color{cbLime} #1}\par
       \vspace*{0.5cm}
       {\Huge \bfseries \color{cbWhite} #2}\par
@@ -325,7 +335,7 @@
       \end{tikzpicture}
     }
     \begin{frame}[plain]
-      \vspace*{1.5cm}
+      \vspace*{2.5cm} % Pushed down to clear the logo
       \hspace*{1cm}
       \begin{minipage}{0.8\textwidth}
         {\fontsize{32}{40}\selectfont\bfseries\color{cbBlue} Sección #1}\par
@@ -350,7 +360,7 @@
     }
     \begin{frame}[plain]
       \centering
-      \vspace*{1.5cm}
+      \vspace*{2.5cm} % Pushed down to clear the logo
       {\Huge \bfseries \color{cbPurple} #1}\par
       \vspace*{0.5cm}
       {\Huge \bfseries \color{cbWhite} #2}\par
@@ -370,12 +380,7 @@
 
 % Style 1: Bullet Points + Key Takeaway Card
 \newcommand{\contentSlideBulletCard}[4]{
-  \begin{frame}[plain]
-    \begin{tikzpicture}[remember picture, overlay]
-      \node[anchor=east, align=right] at ($(current page.north east) + (-0.8cm, -1.2cm)$) {
-        {{\large \bfseries \color{cbBlue}#1}}
-      };
-    \end{tikzpicture}
+  \begin{frame}{#1}
     \begin{columns}[T,onlytextwidth]
       \begin{column}{0.58\textwidth}
         #2
@@ -391,12 +396,7 @@
 
 % Style 2: Two-Column Split (Comparison/Detail)
 \newcommand{\contentSlideTwoCols}[5]{
-  \begin{frame}
-    \begin{tikzpicture}[remember picture, overlay]
-      \node[anchor=east, align=right] at ($(current page.north east) + (-0.8cm, -1.2cm)$) {
-        {{\large \bfseries \color{cbBlue}#1}}
-      };
-    \end{tikzpicture}
+  \begin{frame}{#1}
     \begin{columns}[T,onlytextwidth]
       \begin{column}{0.48\textwidth}
         {\large\bfseries\color{cbBlue} #2}\par
@@ -415,12 +415,7 @@
 % Style 3: Quote / Big Stat (Focus)
 \newcommand{\contentSlideQuoteStat}[4]{
   {
-    \begin{frame}
-      \begin{tikzpicture}[remember picture, overlay]
-        \node[anchor=east, align=right] at ($(current page.north east) + (-0.8cm, -1.2cm)$) {
-          {{\large \bfseries \color{cbBlue}#1}}
-        };
-      \end{tikzpicture}
+    \begin{frame}{#1}
       \centering
       \vspace*{0.2cm}
       {\fontsize{48}{56}\selectfont\bfseries\color{cbOrange} #2}\par
