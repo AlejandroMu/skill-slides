@@ -50,11 +50,33 @@ Use the following custom commands to construct slides. This ensures a clean, pre
 ### 4. Content Slides
 
 - `\contentSlideBulletCard{SlideTitle}{BulletListContent}{CardTitle}{CardBodyContent}`
-  * *Style*: Two-column layout. Left column (58%) contains standard bullets. Right column (38%) contains a styled purple callout card. Floating title at the top-right, aligned with the top-left logo.
+  * *Style*: Two-column layout. Left column (58%) contains standard bullets. Right column (38%) contains a styled purple callout card.
 - `\contentSlideTwoCols{SlideTitle}{Col1Header}{Col1Body}{Col2Header}{Col2Body}`
-  * *Style*: 50/50 vertical split with bold colored column headers (blue and purple) for comparisons. Floating title at the top-right.
+  * *Style*: 50/50 vertical split with bold colored column headers (blue and purple) for comparisons.
 - `\contentSlideQuoteStat{SlideTitle}{HugeStatOrKeyword}{LabelBelowStat}{ItalicQuoteOrTakeaway}`
-  * *Style*: Centered, high-impact key takeaway slide. Shows a huge orange statistic/phrase, a label, and a large italic quote with a background quotation mark. Floating title at the top-right.
+  * *Style*: Centered, high-impact key takeaway slide. Shows a huge orange statistic/phrase, a label, and a large italic quote with a background quotation mark.
+
+---
+
+## Design, Spacing & Overlap Prevention Guidelines
+
+To maintain absolute visual excellence and prevent text overlapping:
+1. **Never Overfill Slides**: Standard slides should never contain more than 3-4 bullet points or long paragraphs. If you have more content, **you must split it** into multiple slides (e.g., *Title (I)* and *Title (II)*) using the same layout macro.
+2. **Title Layout**: Always use Beamer's standard title macro `\begin{frame}{Slide Title}` or the slide macro's first argument. The style package's global `frametitle` template handles positioning automatically on the right side to prevent any overlap with the top-left logo.
+3. **Plain Frames Padding**: When using plain slides (like portadas/secciones), always ensure there is a `\vspace*{2.5cm}` at the beginning of the frame so that the text starts safely below the logo.
+
+---
+
+## Automatic Layout Verification
+
+The skill includes a helper script to automatically verify slide layout correctness and detect overflows:
+1. **Run the Verification Script**: After generating or editing a presentation, run:
+   `node <skill_path>/scripts/verify_presentation.js <presentation.tex>`
+   (Locate the skill folder path in your system prompt or current directory).
+2. **Analyze Output**:
+   * If it prints `[SUCCESS]`, your slides compile cleanly and have no overflows.
+   * If it prints `[WARNING]`, it will specify which slides are vertically overflowing (e.g. `Slide 5: Content overflows vertically`).
+3. **Refactor and Re-verify**: If any slide overflows, split its content into multiple slides, re-run the verification script, and repeat until it reports `[SUCCESS]`.
 
 ---
 
